@@ -10,6 +10,7 @@ export default function InfoSection() {
         { name: "Tailwind", color: "bg-cyan-400" },
         { name: "Figma", color: "bg-purple-500" },
         { name: "VS Code", color: "bg-blue-400" },
+        { name: "Astro", color: "bg-orange-500" },
     ];
 
     const solutions = [
