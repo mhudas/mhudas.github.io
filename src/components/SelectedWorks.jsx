@@ -10,7 +10,7 @@ export default function SelectedWorks() {
             type: "embed",
             title: "SwiftPOS",
             description: "A sleek, mobile-first POS interface built to streamline daily business operations and stock monitoring.",
-            year: "2024",
+            year: "2025",
             tags: ["UI/UX", "React", "Figma"],
             embedSrc: "https://www.behance.net/embed/project/242496187?ilo0=1",
             link: "https://www.behance.net/gallery/242496187/SwiftPOS"
@@ -19,10 +19,19 @@ export default function SelectedWorks() {
             type: "embed",
             title: "CourtBooker",
             description: "fully responsive web application built to facilitate sports venue reservations. This project focuses on performance, scalability, and a friction-free user experience (UX).",
-            year: "2024",
+            year: "2025",
             tags: ["UI/UX", "React", "Figma"],
             embedSrc: "https://www.behance.net/embed/project/242469583?ilo0=1",
             link: "https://www.behance.net/gallery/242469583/CourtBooker"
+        },
+        {
+            type: "embed",
+            title: "BlueFunded",
+            description: "A modern UI/UX design for a Forex & Crypto proprietary trading firm. This platform features a clean dashboard, intuitive challenge selection, and a trust-building interface designed to convert visitors into funded traders.",
+            year: "2026",
+            tags: ["UI/UX", "React", "Figma"],
+            embedSrc: "https://www.behance.net/embed/project/242755505?ilo0=1",
+            link: "https://www.behance.net/gallery/242755505/BlueFunded"
         },
         {
             title: "Snake Game with AI",
