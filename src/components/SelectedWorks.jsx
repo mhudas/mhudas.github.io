@@ -6,19 +6,20 @@ export default function SelectedWorks() {
     const itemsPerPage = 2;
 
     const projects = [
+
         {
             type: "embed",
-            title: "SwiftPOS",
+            title: "Groove Paper",
             description: "A sleek, mobile-first POS interface built to streamline daily business operations and stock monitoring.",
             year: "2025",
             tags: ["UI/UX", "React", "Figma"],
-            embedSrc: "https://www.behance.net/embed/project/242496187?ilo0=1",
-            link: "https://www.behance.net/gallery/242496187/SwiftPOS"
+            embedSrc: "https://www.behance.net/embed/project/242814473?ilo0=1",
+            link: "https://www.behance.net/gallery/242814473/Groove-Paper-Retro-E-commerce-Design"
         },
         {
             type: "embed",
             title: "CourtBooker",
-            description: "fully responsive web application built to facilitate sports venue reservations. This project focuses on performance, scalability, and a friction-free user experience (UX).",
+            description: "A fully responsive web application built to facilitate sports venue reservations. This project focuses on performance, scalability, and a friction-free user experience (UX).",
             year: "2025",
             tags: ["UI/UX", "React", "Figma"],
             embedSrc: "https://www.behance.net/embed/project/242469583?ilo0=1",
