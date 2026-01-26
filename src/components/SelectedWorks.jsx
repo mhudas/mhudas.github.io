@@ -18,6 +18,15 @@ export default function SelectedWorks() {
         },
         {
             type: "embed",
+            title: "Sekolah Kreatif",
+            description: "A cheerful school website concept designed like a digital scrapbook. Uses paper textures and vibrant sticky notes to create a fun, welcoming environment for students and parents.",
+            year: "2025",
+            tags: ["UI/UX", "React", "Figma"],
+            embedSrc: "https://www.behance.net/embed/project/242939577?ilo0=1",
+            link: "https://www.behance.net/gallery/242939577/Sekolah-Kreatif-Kids-Education-Web-Design"
+        },
+        {
+            type: "embed",
             title: "CourtBooker",
             description: "A fully responsive web application built to facilitate sports venue reservations. This project focuses on performance, scalability, and a friction-free user experience (UX).",
             year: "2025",
