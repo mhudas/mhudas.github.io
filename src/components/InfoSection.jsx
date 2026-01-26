@@ -110,7 +110,7 @@ export default function InfoSection() {
                             </div>
                             <div className="bg-background-dark border border-white/5 rounded-lg p-4 flex flex-col justify-center">
                                 <span className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">PROJECTS</span>
-                                <span className="text-3xl font-display font-black text-white">3</span>
+                                <span className="text-3xl font-display font-black text-white">7</span>
                             </div>
                         </div>
                     </div>
