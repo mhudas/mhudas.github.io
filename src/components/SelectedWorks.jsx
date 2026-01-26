@@ -20,10 +20,19 @@ export default function SelectedWorks() {
             type: "embed",
             title: "Sekolah Kreatif",
             description: "A cheerful school website concept designed like a digital scrapbook. Uses paper textures and vibrant sticky notes to create a fun, welcoming environment for students and parents.",
-            year: "2025",
+            year: "2026",
             tags: ["UI/UX", "React", "Figma"],
             embedSrc: "https://www.behance.net/embed/project/242939577?ilo0=1",
             link: "https://www.behance.net/gallery/242939577/Sekolah-Kreatif-Kids-Education-Web-Design"
+        },
+        {
+            type: "embed",
+            title: "SwiftPOS",
+            description: "SwiftPOS is a modern, dark-themed mobile Point of Sale (POS) application designed for efficiency. This project showcases the frontend implementat",
+            year: "2025",
+            tags: ["UI/UX", "React", "Figma"],
+            embedSrc: "https://www.behance.net/embed/project/242496187?ilo0=1",
+            link: "https://www.behance.net/gallery/242496187/SwiftPOS-Modern-Mobile-Point-of-Sale-App"
         },
         {
             type: "embed",
