@@ -36,6 +36,15 @@ export default function SelectedWorks() {
         },
         {
             type: "embed",
+            title: "Norteix",
+            description: "A sleek, dark-themed UI for an AI writing assistant. Features a focus-driven interface for plagiarism checking, paraphrasing, and content analysis with neon accents.",
+            year: "2026",
+            tags: ["UI/UX", "React", "Figma"],
+            embedSrc: "https://www.behance.net/embed/project/243013893?ilo0=1",
+            link: "https://www.behance.net/gallery/243013893/Norteix-Intelligent-Writing-Tool"
+        },
+        {
+            type: "embed",
             title: "CourtBooker",
             description: "A fully responsive web application built to facilitate sports venue reservations. This project focuses on performance, scalability, and a friction-free user experience (UX).",
             year: "2025",
