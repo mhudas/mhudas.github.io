@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, animate } from "framer-motion";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     // Prevent scrolling when menu is open
     useEffect(() => {
@@ -14,26 +17,49 @@ export default function Navbar() {
     }, [isMenuOpen]);
 
     const navLinks = [
-        { title: "HOME", href: "#hero" },
-        { title: "ABOUT", href: "#about" },
-        { title: "WORK", href: "#work" },
-        { title: "CONTACT", href: "#contact" },
+        { title: "HOME", href: "/#hero", type: "scroll" },
+        { title: "PORTFOLIO", href: "/portfolio", type: "route" },
+        { title: "ABOUT", href: "/#about", type: "scroll" },
+        { title: "WORK", href: "/#work", type: "scroll" },
+        { title: "CONTACT", href: "/#contact", type: "scroll" },
     ];
 
-    const handleScroll = (href) => {
+    const handleNavigation = (href, type) => {
         setIsMenuOpen(false);
-        const element = document.querySelector(href);
-        if (element) {
+
+        if (type === "route") {
+            navigate(href);
+            return;
+        }
+
+        // Handle Scroll Links
+        if (location.pathname !== "/") {
+            // If not on home page, navigate to home then scroll
+            navigate("/");
             setTimeout(() => {
+                const element = document.querySelector(href.replace("/", ""));
+                if (element) {
+                    const start = window.scrollY;
+                    const end = element.getBoundingClientRect().top + window.scrollY;
+                    animate(start, end, {
+                        duration: 1.2,
+                        ease: "easeInOut",
+                        onUpdate: (latest) => window.scrollTo(0, latest)
+                    });
+                }
+            }, 500); // Wait for page transition
+        } else {
+            // Already on home page, just scroll
+            const element = document.querySelector(href.replace("/", ""));
+            if (element) {
                 const start = window.scrollY;
                 const end = element.getBoundingClientRect().top + window.scrollY;
-
                 animate(start, end, {
                     duration: 1.2,
                     ease: "easeInOut",
                     onUpdate: (latest) => window.scrollTo(0, latest)
                 });
-            }, 300);
+            }
         }
     };
 
@@ -41,9 +67,9 @@ export default function Navbar() {
         <>
             <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-start pointer-events-none mix-blend-difference text-white">
                 <div className="pointer-events-auto z-50">
-                    <a className="flex items-center gap-2 group" href="#">
+                    <button onClick={() => navigate("/")} className="flex items-center gap-2 group">
                         <img src="/mhudas.svg" alt="MHUDAS Logo" className="h-12 w-auto object-contain" />
-                    </a>
+                    </button>
                 </div>
                 <div className="pointer-events-auto flex flex-col items-end gap-1 z-50">
                     <button
@@ -71,7 +97,7 @@ export default function Navbar() {
                                     href={link.href}
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        handleScroll(link.href);
+                                        handleNavigation(link.href, link.type);
                                     }}
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}

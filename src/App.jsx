@@ -1,21 +1,31 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import { AnimatePresence } from 'framer-motion';
 import Intro from './components/Intro';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Marquee from './components/Marquee';
-import InfoSection from './components/InfoSection';
-import SelectedWorks from './components/SelectedWorks';
-import Footer from './components/Footer';
-
+import Home from './pages/Home';
+import Portfolio from './pages/Portfolio';
 import ContactModal from './components/ContactModal';
 
-function App() {
+// Scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+function AppContent() {
   const [showIntro, setShowIntro] = useState(true);
   const [activeScrollIndex, setActiveScrollIndex] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const location = useLocation();
 
+  // Lenis Smooth Scroll
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -35,7 +45,16 @@ function App() {
     }
     animationId = requestAnimationFrame(raf);
 
-    // Optimized observer with debouncing
+    return () => {
+      cancelAnimationFrame(animationId);
+      lenis.destroy();
+    };
+  }, []);
+
+  // Update active scroll index (Only for Home page)
+  useEffect(() => {
+    if (location.pathname !== '/') return;
+
     const observerOptions = {
       root: null,
       rootMargin: '-40% 0px -40% 0px',
@@ -55,46 +74,33 @@ function App() {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    // Defer observer setup for better initial load
-    requestAnimationFrame(() => {
-      const sections = document.querySelectorAll('#hero, #about, #work');
-      sections.forEach((section) => observer.observe(section));
-    });
+    const sections = document.querySelectorAll('#hero, #about, #work');
+    sections.forEach((section) => observer.observe(section));
 
-    return () => {
-      cancelAnimationFrame(animationId);
-      lenis.destroy();
-      observer.disconnect();
-    };
-  }, []);
+    return () => observer.disconnect();
+  }, [location.pathname]);
 
   return (
-    <main className="relative flex flex-col w-full min-h-screen">
+    <main className="relative flex flex-col w-full min-h-screen content-wrapper">
+      <ScrollToTop />
+
+      {/* Intro only on Home and first load */}
       <AnimatePresence mode="wait">
-        {showIntro && <Intro onComplete={() => setShowIntro(false)} />}
+        {showIntro && location.pathname === '/' && <Intro onComplete={() => setShowIntro(false)} />}
       </AnimatePresence>
 
-      {/* Contact Modal */}
       <AnimatePresence>
         {isModalOpen && <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
       </AnimatePresence>
 
       <Navbar />
-      <div id="hero">
-        <Hero />
-      </div>
-      <Marquee />
-      <div id="about">
-        <InfoSection />
-      </div>
-      <div id="work">
-        <SelectedWorks />
-      </div>
-      <div id="contact">
-        <Footer />
-      </div>
 
-      {/* Floating Action Button - Liquid Glass Style */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+      </Routes>
+
+      {/* Floating Action Button */}
       <div className="fixed bottom-8 right-8 z-50">
         <button
           onClick={() => setIsModalOpen(true)}
@@ -111,6 +117,7 @@ function App() {
             `,
           }}
         >
+          {/* ... (Existing Button Code) ... */}
           {/* Gradient border overlay */}
           <div
             className="absolute inset-0 rounded-full opacity-50 group-hover:opacity-80 transition-opacity duration-500"
@@ -145,13 +152,23 @@ function App() {
         </button>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="fixed bottom-8 left-8 z-50 mix-blend-difference text-white hidden md:block pointer-events-none">
-        <span className="font-mono text-xs tracking-widest opacity-60">
-          SCROLL 00{activeScrollIndex}/003
-        </span>
-      </div>
+      {/* Scroll Indicator - Only on Home */}
+      {location.pathname === '/' && (
+        <div className="fixed bottom-8 left-8 z-50 mix-blend-difference text-white hidden md:block pointer-events-none">
+          <span className="font-mono text-xs tracking-widest opacity-60">
+            SCROLL 00{activeScrollIndex}/003
+          </span>
+        </div>
+      )}
     </main>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 

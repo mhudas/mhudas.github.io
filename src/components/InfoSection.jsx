@@ -1,4 +1,30 @@
+import { useRef, useEffect } from "react";
+import { useInView, useMotionValue, useSpring } from "framer-motion";
+import { projects } from "../data/projects";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
+
+function AnimatedCounter({ value }) {
+    const ref = useRef(null);
+    const motionValue = useMotionValue(0);
+    const springValue = useSpring(motionValue, { damping: 100, stiffness: 100 });
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+    useEffect(() => {
+        if (isInView) {
+            motionValue.set(value);
+        }
+    }, [isInView, value, motionValue]);
+
+    useEffect(() => {
+        return springValue.on("change", (latest) => {
+            if (ref.current) {
+                ref.current.textContent = Math.round(latest);
+            }
+        });
+    }, [springValue]);
+
+    return <span ref={ref} />;
+}
 
 export default function InfoSection() {
     const philosophyQuote = `"Clean code is not just about readability; it's about maintainability, scalability, and accessibility for everyone."`;
@@ -110,7 +136,9 @@ export default function InfoSection() {
                             </div>
                             <div className="bg-background-dark border border-white/5 rounded-lg p-4 flex flex-col justify-center">
                                 <span className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">PROJECTS</span>
-                                <span className="text-3xl font-display font-black text-white">8</span>
+                                <span className="text-3xl font-display font-black text-white">
+                                    <AnimatedCounter value={projects.length} />
+                                </span>
                             </div>
                         </div>
                     </div>
