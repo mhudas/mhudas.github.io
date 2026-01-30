@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import { AnimatePresence } from 'framer-motion';
 import Intro from './components/Intro';
@@ -25,6 +25,11 @@ function AppContent() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
 
+  // Debug log
+  useEffect(() => {
+    console.log("App rendered. Current path:", location.pathname);
+  }, [location]);
+
   // Lenis Smooth Scroll
   useEffect(() => {
     const lenis = new Lenis({
@@ -45,39 +50,47 @@ function AppContent() {
     }
     animationId = requestAnimationFrame(raf);
 
+    // Optimized observer with debouncing
+    // Only run intersection observer on home page
+    if (location.pathname === '/') {
+      const observerOptions = {
+        root: null,
+        rootMargin: '-40% 0px -40% 0px',
+        threshold: 0
+      };
+
+      const observerCallback = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            if (id === 'hero') setActiveScrollIndex(1);
+            else if (id === 'about') setActiveScrollIndex(2);
+            else if (id === 'work') setActiveScrollIndex(3);
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+      requestAnimationFrame(() => {
+        const sections = document.querySelectorAll('#hero, #about, #work');
+        sections.forEach((section) => {
+          if (section) observer.observe(section);
+        });
+      });
+
+      // Cleanup observer on effect re-run (or unmount)
+      return () => {
+        cancelAnimationFrame(animationId);
+        lenis.destroy();
+        observer.disconnect();
+      };
+    }
+
     return () => {
       cancelAnimationFrame(animationId);
       lenis.destroy();
     };
-  }, []);
-
-  // Update active scroll index (Only for Home page)
-  useEffect(() => {
-    if (location.pathname !== '/') return;
-
-    const observerOptions = {
-      root: null,
-      rootMargin: '-40% 0px -40% 0px',
-      threshold: 0
-    };
-
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          if (id === 'hero') setActiveScrollIndex(1);
-          else if (id === 'about') setActiveScrollIndex(2);
-          else if (id === 'work') setActiveScrollIndex(3);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    const sections = document.querySelectorAll('#hero, #about, #work');
-    sections.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect();
   }, [location.pathname]);
 
   return (
@@ -117,7 +130,6 @@ function AppContent() {
             `,
           }}
         >
-          {/* ... (Existing Button Code) ... */}
           {/* Gradient border overlay */}
           <div
             className="absolute inset-0 rounded-full opacity-50 group-hover:opacity-80 transition-opacity duration-500"
