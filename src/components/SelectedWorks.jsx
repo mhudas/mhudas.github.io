@@ -9,12 +9,12 @@ export default function SelectedWorks() {
 
         {
             type: "embed",
-            title: "Groove Paper",
-            description: "A sleek, mobile-first POS interface built to streamline daily business operations and stock monitoring.",
-            year: "2025",
+            title: "Login UI Concepts",
+            description: "The goal was to create two distinct login experiences that cater to opposite user personas, designed in Figma and fully implemented using React.",
+            year: "2026",
             tags: ["UI/UX", "React", "Figma"],
-            embedSrc: "https://www.behance.net/embed/project/242814473?ilo0=1",
-            link: "https://www.behance.net/gallery/242814473/Groove-Paper-Retro-E-commerce-Design"
+            embedSrc: "https://www.behance.net/embed/project/243220961?ilo0=1",
+            link: "https://www.behance.net/gallery/243220961/Login-UI-Concepts"
         },
         {
             type: "embed",
@@ -24,6 +24,15 @@ export default function SelectedWorks() {
             tags: ["UI/UX", "React", "Figma"],
             embedSrc: "https://www.behance.net/embed/project/242939577?ilo0=1",
             link: "https://www.behance.net/gallery/242939577/Sekolah-Kreatif-Kids-Education-Web-Design"
+        },
+        {
+            type: "embed",
+            title: "Groove Paper",
+            description: "A sleek, mobile-first POS interface built to streamline daily business operations and stock monitoring.",
+            year: "2025",
+            tags: ["UI/UX", "React", "Figma"],
+            embedSrc: "https://www.behance.net/embed/project/242814473?ilo0=1",
+            link: "https://www.behance.net/gallery/242814473/Groove-Paper-Retro-E-commerce-Design"
         },
         {
             type: "embed",
