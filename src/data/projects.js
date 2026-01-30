@@ -37,6 +37,15 @@ export const projects = [
     },
     {
         type: "embed",
+        title: "Bulat AI",
+        description: "Bulat AI is a concept for an AI-powered website builder that allows users to create stunning websites in seconds.",
+        year: "2026",
+        tags: ["UI/UX", "React", "Figma"],
+        embedSrc: "https://www.behance.net/embed/project/243228883?ilo0=1",
+        link: "https://www.behance.net/gallery/243228883/High-Converting-Landing-Page-for-AI-Website-Builder"
+    },
+    {
+        type: "embed",
         title: "Norteix",
         description: "A sleek, dark-themed UI for an AI writing assistant. Features a focus-driven interface for plagiarism checking, paraphrasing, and content analysis with neon accents.",
         year: "2026",
