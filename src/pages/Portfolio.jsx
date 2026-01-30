@@ -30,36 +30,38 @@ export default function Portfolio() {
                             transition={{ delay: index * 0.1, duration: 0.5 }}
                             className="group bg-surface-dark border border-white/5 rounded-2xl overflow-hidden hover:border-accent/30 transition-all duration-300 flex flex-col h-full"
                         >
-                            {/* Image / Embed Thumnail */}
+                            {/* Image / Embed Thumbnail */}
                             <div className="aspect-[4/3] w-full bg-black relative overflow-hidden">
                                 {project.type === 'embed' ? (
                                     <iframe
                                         src={project.embedSrc}
-                                        className="w-full h-full object-cover pointer-events-none"
+                                        className="w-full h-full object-cover"
                                         title={project.title}
                                         loading="lazy"
                                         scrolling="no"
                                     />
                                 ) : (
-                                    <div
-                                        className="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
-                                        style={{ backgroundImage: `url('${project.image}')` }}
-                                    />
+                                    <>
+                                        <div
+                                            className="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
+                                            style={{ backgroundImage: `url('${project.image}')` }}
+                                        />
+
+                                        <div className="absolute inset-0 bg-black/50 group-hover:bg-transparent transition-colors duration-300" />
+
+                                        {/* Link Overlay - Only for non-embed projects */}
+                                        <a
+                                            href={project.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]"
+                                        >
+                                            <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-full font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                                View Project <span className="material-symbols-outlined text-sm">north_east</span>
+                                            </div>
+                                        </a>
+                                    </>
                                 )}
-
-                                <div className="absolute inset-0 bg-black/50 group-hover:bg-transparent transition-colors duration-300" />
-
-                                {/* Link Overlay */}
-                                <a
-                                    href={project.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]"
-                                >
-                                    <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-full font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                                        View Project <span className="material-symbols-outlined text-sm">north_east</span>
-                                    </div>
-                                </a>
                             </div>
 
                             {/* Content */}
