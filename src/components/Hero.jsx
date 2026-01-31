@@ -87,7 +87,7 @@ export default function Hero() {
                                 <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10"></div>
                                 <div
                                     className="w-full h-full bg-cover bg-center transition-transform duration-1000 ease-out"
-                                    style={{ backgroundImage: "url('/profile.png')" }}
+                                    style={{ backgroundImage: "url('/profile.PNG')" }}
                                 >
                                 </div>
                                 <div className="absolute bottom-6 left-6 z-20 bg-black/60 backdrop-blur-md px-4 py-3 border border-white/10 rounded-xl shadow-lg">
