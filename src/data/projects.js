@@ -12,7 +12,7 @@ export const projects = [
         type: "embed",
         title: "Sekolah Kreatif",
         description: "A cheerful school website concept designed like a digital scrapbook. Uses paper textures and vibrant sticky notes to create a fun, welcoming environment for students and parents.",
-        year: "2026",
+        year: "2025",
         tags: ["UI/UX", "React", "Figma"],
         embedSrc: "https://www.behance.net/embed/project/242939577?ilo0=1",
         link: "https://www.behance.net/gallery/242939577/Sekolah-Kreatif-Kids-Education-Web-Design"
@@ -66,7 +66,7 @@ export const projects = [
         type: "embed",
         title: "Kotak",
         description: "High-performance B2B data intelligence platform. A dark-themed SaaS interface focused on advanced data visualization and sales efficiency.",
-        year: "2026",
+        year: "2025",
         tags: ["UI/UX", "React", "Figma"],
         embedSrc: "https://www.behance.net/embed/project/242762223?ilo0=1",
         link: "https://www.behance.net/gallery/242762223/Kotak-B2B-Data-Intelligence-Platform"
@@ -75,7 +75,7 @@ export const projects = [
         type: "embed",
         title: "BlueFunded",
         description: "A modern UI/UX design for a Forex & Crypto proprietary trading firm. This platform features a clean dashboard, intuitive challenge selection, and a trust-building interface designed to convert visitors into funded traders.",
-        year: "2026",
+        year: "2025",
         tags: ["UI/UX", "React", "Figma"],
         embedSrc: "https://www.behance.net/embed/project/242755505?ilo0=1",
         link: "https://www.behance.net/gallery/242755505/BlueFunded"
