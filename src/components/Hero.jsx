@@ -1,4 +1,5 @@
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import HeroBackground from './HeroBackground';
 
 export default function Hero() {
     const x = useMotionValue(0);
@@ -31,31 +32,28 @@ export default function Hero() {
 
     return (
         <section className="relative w-full min-h-[100dvh] flex items-center justify-center pt-24 pb-12 overflow-hidden perspective-[2000px]">
+            {/* Full-screen background animation */}
+            <HeroBackground />
+
             <div className="layout-content-container w-full max-w-[1400px] px-6 relative flex flex-col lg:flex-row items-center justify-center h-full">
-                {/* Background Text */}
-                <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none overflow-hidden z-0 opacity-10 lg:opacity-100">
-                    <h1 className="text-[20vw] leading-[0.8] font-display font-black text-white/5 whitespace-nowrap blur-sm">
-                        LOVE
-                    </h1>
-                </div>
 
                 <div className="relative z-10 w-full flex flex-col lg:flex-row items-center justify-between gap-10">
 
                     {/* Main Attributes */}
-                    <div className="flex flex-col relative z-20 mix-blend-difference text-center lg:text-left">
-                        <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-display font-black tracking-tighter leading-[0.85] text-white">
+                    <div className="flex flex-col relative z-20 text-center lg:text-left">
+                        <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-display font-black tracking-tighter leading-[0.85] text-white drop-shadow-2xl">
                             MHUDAS<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-br from-white to-white/50">PORTFOLIO</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-br from-white to-white/70 drop-shadow-sm">PORTFOLIO</span>
                         </h1>
                         <div className="mt-8 flex flex-col gap-4 max-w-md mx-auto lg:mx-0">
-                            <p className="font-body font-light text-lg md:text-xl text-gray-400">
+                            <p className="font-body font-light text-lg md:text-xl text-gray-100 drop-shadow-md bg-black/20 backdrop-blur-sm p-4 rounded-xl border border-white/10">
                                 Crafting high-performance, interactive, and accessible web experiences.
                             </p>
-                            <div className="flex gap-4 justify-center lg:justify-start">
-                                <span className="px-3 py-1 rounded-full border border-white/20 text-xs font-mono text-gray-400">REACT</span>
-                                <span className="px-3 py-1 rounded-full border border-white/20 text-xs font-mono text-gray-400">NEXT.JS</span>
-                                <span className="px-3 py-1 rounded-full border border-white/20 text-xs font-mono text-gray-400">TAILWIND</span>
-                                <span className="px-3 py-1 rounded-full border border-white/20 text-xs font-mono text-gray-400">ASTRO</span>
+                            <div className="flex gap-4 justify-center lg:justify-start flex-wrap">
+                                <span className="px-3 py-1 rounded-full border border-white/20 bg-black/20 backdrop-blur-md text-xs font-mono text-white shadow-sm">REACT</span>
+                                <span className="px-3 py-1 rounded-full border border-white/20 bg-black/20 backdrop-blur-md text-xs font-mono text-white shadow-sm">NEXT.JS</span>
+                                <span className="px-3 py-1 rounded-full border border-white/20 bg-black/20 backdrop-blur-md text-xs font-mono text-white shadow-sm">TAILWIND</span>
+                                <span className="px-3 py-1 rounded-full border border-white/20 bg-black/20 backdrop-blur-md text-xs font-mono text-white shadow-sm">ASTRO</span>
                             </div>
                         </div>
                     </div>
