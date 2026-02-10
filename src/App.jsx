@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import { AnimatePresence } from 'framer-motion';
 import Intro from './components/Intro';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Portfolio from './pages/Portfolio';
+import NotFound from './pages/NotFound';
 import ContactModal from './components/ContactModal';
 
 // Scroll to top on route change
@@ -111,6 +112,7 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       {/* Floating Action Button */}
