@@ -8,3 +8,6 @@ Hosted at: https://mhudas.github.io/
 - Vite
 - Tailwind CSS
 - Framer Motion
+
+## Credit
+- Background Animation: https://codepen.io/miocene/pen/mjLPVp
