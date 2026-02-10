@@ -8,8 +8,6 @@ export default function HeroBackground() {
         const handleResize = () => {
             const scaleX = window.innerWidth / 800;
             const scaleY = window.innerHeight / 600;
-            // Use greater scale to cover the screen (like background-size: cover)
-            // Add a slight multiplier (1.1) to ensure no edges are visible during resize
             setScale(Math.max(scaleX, scaleY) * 1.1);
         };
 

@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import { useInView, useMotionValue, useSpring } from "framer-motion";
 import { projects } from "../data/projects";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
+import ProfileCard from "./ProfileCard";
 
 function AnimatedCounter({ value }) {
     const ref = useRef(null);
@@ -54,6 +55,12 @@ export default function InfoSection() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[minmax(280px,auto)]">
+
+
+                    {/* Profile Card (Moved from Hero) */}
+                    <div className="md:col-span-1 row-span-2">
+                        <ProfileCard />
+                    </div>
 
                     {/* Philosophy Card */}
                     <div className="md:col-span-2 bg-surface-dark rounded-xl p-8 border border-white/5 flex flex-col justify-center items-start gap-4 hover:border-accent/30 transition-colors group">
