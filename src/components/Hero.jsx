@@ -24,7 +24,9 @@ export default function Hero() {
                             <div className="flex gap-4 justify-center flex-wrap">
                                 <span className="px-3 py-1 rounded-full border border-white/20 bg-black/20 backdrop-blur-md text-xs font-mono text-white shadow-sm">REACT</span>
                                 <span className="px-3 py-1 rounded-full border border-white/20 bg-black/20 backdrop-blur-md text-xs font-mono text-white shadow-sm">NEXT.JS</span>
+                                <span className="px-3 py-1 rounded-full border border-white/20 bg-black/20 backdrop-blur-md text-xs font-mono text-white shadow-sm">TYPESCRIPT</span>
                                 <span className="px-3 py-1 rounded-full border border-white/20 bg-black/20 backdrop-blur-md text-xs font-mono text-white shadow-sm">TAILWIND</span>
+                                <span className="px-3 py-1 rounded-full border border-white/20 bg-black/20 backdrop-blur-md text-xs font-mono text-white shadow-sm">FIGMA</span>
                                 <span className="px-3 py-1 rounded-full border border-white/20 bg-black/20 backdrop-blur-md text-xs font-mono text-white shadow-sm">ASTRO</span>
                             </div>
                         </div>
