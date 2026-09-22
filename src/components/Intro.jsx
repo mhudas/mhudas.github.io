@@ -8,7 +8,16 @@ export default function Intro({ onComplete }) {
             exit={{ y: "-100vh" }}
             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
         >
-            <div className="relative w-full max-w-4xl px-4">
+            <motion.div
+                className="relative w-full max-w-4xl px-4"
+                initial={{ scale: 1 }}
+                animate={{ scale: 1.15 }}
+                transition={{
+                    duration: 1.5,
+                    ease: [0.22, 1, 0.36, 1],
+                    delay: 2.5
+                }}
+            >
                 <motion.svg
                     viewBox="0 0 800 200"
                     className="w-full h-auto"
@@ -43,7 +52,7 @@ export default function Intro({ onComplete }) {
                         MHUDAS
                     </motion.text>
                 </motion.svg>
-            </div>
+            </motion.div>
         </motion.div>
     );
 }

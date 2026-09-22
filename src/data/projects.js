@@ -1,6 +1,15 @@
 export const projects = [
     {
         type: "embed",
+        title: "FastSnip",
+        description: "A dark-themed, performance-based clipping platform connecting creators and brands, built with React and pure vanilla CSS for a fluid, interactive UI.",
+        year: "2026",
+        tags: ["UI/UX", "React", "CSS3"],
+        embedSrc: "hhttps://www.behance.net/embed/project/251797135?ilo0=1",
+        link: "https://www.behance.net/gallery/251797135/FastSnip-Content-Clipping-Platform-UI"
+    },
+    {
+        type: "embed",
         title: "Login UI Concepts",
         description: "The goal was to create two distinct login experiences that cater to opposite user personas, designed in Figma and fully implemented using React.",
         year: "2026",
