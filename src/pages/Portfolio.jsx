@@ -35,10 +35,13 @@ export default function Portfolio() {
                                 {project.type === 'embed' ? (
                                     <iframe
                                         src={project.embedSrc}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover border-0"
                                         title={project.title}
                                         loading="lazy"
                                         scrolling="no"
+                                        allowFullScreen
+                                        allow="clipboard-write"
+                                        referrerPolicy="strict-origin-when-cross-origin"
                                     />
                                 ) : (
                                     <>

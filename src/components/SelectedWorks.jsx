@@ -38,12 +38,11 @@ export default function SelectedWorks() {
                                         height="100%"
                                         width="100%"
                                         allowFullScreen
-                                        lazyLoad="true"
-                                        frameBorder="0"
+                                        loading="lazy"
                                         scrolling="no"
                                         allow="clipboard-write"
-                                        refererPolicy="strict-origin-when-cross-origin"
-                                        className="absolute inset-0 w-full h-full"
+                                        referrerPolicy="strict-origin-when-cross-origin"
+                                        className="absolute inset-0 w-full h-full border-0"
                                         style={{ border: 'none', overflow: 'hidden' }}
                                         title={project.title}
                                     ></iframe>

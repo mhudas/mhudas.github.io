@@ -1,11 +1,20 @@
 export const projects = [
     {
         type: "embed",
+        title: "FundingFirm",
+        description: "A high-converting landing page and comprehensive dashboard UI for a proprietary trading firm, designed with sleek dark aesthetics and data-rich interfaces.",
+        year: "2026",
+        tags: ["UI/UX", "Figma", "Web Design"],
+        embedSrc: "https://www.behance.net/embed/project/258866667?ilo0=1",
+        link: "https://www.behance.net/gallery/258866667/FundingFirm-Prop-Trading-Landing-Page-Dashboard-UI"
+    },
+    {
+        type: "embed",
         title: "FastSnip",
         description: "A dark-themed, performance-based clipping platform connecting creators and brands, built with React and pure vanilla CSS for a fluid, interactive UI.",
         year: "2026",
         tags: ["UI/UX", "React", "CSS3"],
-        embedSrc: "hhttps://www.behance.net/embed/project/251797135?ilo0=1",
+        embedSrc: "https://www.behance.net/embed/project/251797135?ilo0=1",
         link: "https://www.behance.net/gallery/251797135/FastSnip-Content-Clipping-Platform-UI"
     },
     {
